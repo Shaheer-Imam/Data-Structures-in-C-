@@ -1,0 +1,29 @@
+int binary_search_helper(int input[],int si,int ei,int element)
+{
+    int mid=(si+ei)/2;
+    if(si==ei&&input[mid]!=element)
+    {
+        return -1;
+    }
+    
+    if(input[mid]==element)
+    {
+        return mid;
+    }
+    else if(input[mid]>element)
+    {
+        return binary_search_helper(input,si,mid-1,element);
+    }
+    else if(input[mid]<element)
+    {
+        return binary_search_helper(input,mid+1,ei,element);
+    }
+    
+}
+
+int binarySearch(int input[], int size, int element) 
+{
+    int si=0;
+    int ei=size-1;
+    return binary_search_helper(input,si,ei,element);
+}
